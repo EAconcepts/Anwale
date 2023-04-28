@@ -6,6 +6,7 @@ import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import Login from './components/auth/Login';
 import SignUp from './components/auth/SignUp';
+import Settings from './components/pages/Settings';
 // import logo from './assets/images/logo-black.png'
 
 function App() {
@@ -40,6 +41,7 @@ function App() {
           <Route path='/dashboard' element={<Dashboard isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} formValues={formValues} userValues={userValues} currentUser={currentUser} setCurrentUser={setCurrentUser} />}/>
           <Route path='/login' element={<Login isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} userValues={userValues} currentUser={currentUser} setCurrentUser={setCurrentUser} />}/>
           <Route path='/sign-up' element={<SignUp isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} formValues={formValues} setFormValues={setFormValues} />}/>
+          <Route path='/settings' element={<Settings/>}/>
         </Routes>
         {/* <Footer/> */}
       </BrowserRouter>

@@ -39,29 +39,29 @@ const Dashboard = ({isLoggedIn, setIsLoggedIn, formValues, userValues,currentUse
                     <FontAwesomeIcon icon={faUserCircle} className='text-xl text-slate-900'/>
                     <span className='text-xs'>{currentUser} </span>
                 </div>
-                <button className='text-xs'>
+                <NavLink to='/settings' className='text-xs'>
                     SETTINGS <FontAwesomeIcon icon={faGear}/>
-                </button>
+                </NavLink>
             </nav>
-            <div className=''>
-                <div className='flex gap-1'>
-                    <div className='flex flex-col'>
-                        <div className='flex flex-col bg-white  rounded'>
-                            <NavLink className=' border-b-[0.5px] border-b-slate-200 p-3'>
+            <div className='pt-1 '>
+                <div className='flex gap-3'>
+                    <div className='flex flex-col w-1/2 ml-1'>
+                        <div className='flex flex-col bg-white rounded divide-y divide-slate-100'>
+                            <NavLink className='p-3'>
                                 <FontAwesomeIcon icon={faList}/> <span className='text-base'>My adverts</span>
                             </NavLink>
-                            <NavLink className=' border-b-[0.5px] border-b-slate-200 p-3'>
+                            <NavLink className='p-3'>
                                 <FontAwesomeIcon icon={faCommenting}/> <span className='text-base'>Feedback</span>
                             </NavLink>
                             <NavLink className='p-3'>
                                 <FontAwesomeIcon icon={faChartSimple}/> <span className='text-base'>Perfomance</span>
                             </NavLink>
                         </div>
-                        <div className='flex flex-col mt-2 bg-white rounded'>
-                            <NavLink className=' border-b-[0.5px] border-b-slate-200 p-3'>
+                        <div className='flex flex-col mt-2 bg-white rounded divide-y divide-slate-100'>
+                            <NavLink className='p-3'>
                                 <FontAwesomeIcon icon={faBolt}/> <span className='text-base'>PRO Sales</span>
                             </NavLink>
-                            <NavLink className=' border-b-[0.2px] border-b-slate-200 p-3'>
+                            <NavLink className='p-3'>
                                 <FontAwesomeIcon icon={faGem}/> <span className='text-base'>Premium Services</span>
                             </NavLink>
                             <NavLink className='p-3'>
@@ -76,34 +76,28 @@ const Dashboard = ({isLoggedIn, setIsLoggedIn, formValues, userValues,currentUse
                             </NavLink>
                         </div>
                     </div>
-                    <div className=''>
-                        <div className='flex flex-col bg-white rounded'>
-                            <NavLink className=' border-b-[0.5px] border-b-slate-200 p-3'>
+                    <div className='w-1/2 mr-1'>
+                        <div className='flex flex-col bg-white rounded divide-y divide-slate-100'>
+                            <NavLink className='p-3'>
                                 <FontAwesomeIcon icon={faUser}/> <span className='text-base'>Followers</span>
                             </NavLink>
-                            <NavLink className=' border-b-[0.5px] border-b-slate-200 p-3'>
+                            <NavLink className='p-3'>
                                 <FontAwesomeIcon icon={faBell}/> <span className='text-base'>Notifications</span>
                             </NavLink>
                         
                         </div>
-                        <div className='flex flex-col mt-2 bg-white rounded'>
-                            <NavLink className=' border-b-[0.5px] border-b-slate-200 p-3'>
+                        <div className='flex flex-col mt-2 bg-white rounded divide-y divide-slate-100'>
+                            <NavLink className='p-3'>
                                 <FontAwesomeIcon icon={faPhoneVolume}/> <span className='text-base'>Manager's Call</span>
                             </NavLink>
-                            <NavLink className=' border-b-[0.2px] border-b-slate-200 p-3'>
+                            <NavLink className='p-3'>
                                 <FontAwesomeIcon icon={faCircleQuestion}/> <span className='text-base'>FAQ</span>
                             </NavLink>
                         </div>
-                    </div>
-                    
+                    </div> 
                 </div>
-                
             </div>
-           
-            
-
             <StaticFooter/>
-            {/* <Footer/> */}
         </div>
     )
 }
