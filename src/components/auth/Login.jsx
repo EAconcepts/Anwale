@@ -36,6 +36,7 @@ export const Login = ({isLoggedIn, setIsLoggedIn, currentUser, setCurrentUser}) 
             })
             .catch((error)=>{
                 console.log(error)
+                alert(error)
             })   
             
         }
