@@ -41,7 +41,7 @@ function App() {
           <Route path='/dashboard' element={<Dashboard isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} formValues={formValues} userValues={userValues} currentUser={currentUser} setCurrentUser={setCurrentUser} />}/>
           <Route path='/login' element={<Login isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} userValues={userValues} currentUser={currentUser} setCurrentUser={setCurrentUser} />}/>
           <Route path='/sign-up' element={<SignUp isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} formValues={formValues} setFormValues={setFormValues} />}/>
-          <Route path='/settings' element={<Settings/>}/>
+          <Route path='/settings' element={<Settings/>} currentUser={currentUser} setCurrentUser={setCurrentUser}/>
         </Routes>
         {/* <Footer/> */}
       </BrowserRouter>

@@ -1,13 +1,25 @@
 import { faGreaterThan, faLessThan } from "@fortawesome/free-solid-svg-icons"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { useNavigate } from "react-router-dom"
+// import firebase from "firebase/app";
+import "firebase/auth";
 
 
-const Settings =()=>{
+const Settings =({currentUser, setCurrentuser})=>{
     const navigateTo = useNavigate()
 
     const handleBackIcon =()=>{
         navigateTo(-1)
+    }
+
+    console.log(currentUser)
+
+    const handleLogOut = async ()=>{
+        try{
+            await firebase.auth().signOut();
+        } catch (err){
+            alert(err.message)
+        }
     }
 
     return(
@@ -64,10 +76,10 @@ const Settings =()=>{
                         <p>Delete my account permanently</p>
                         <FontAwesomeIcon icon={faGreaterThan} className='pt-1 text-slate-600'/>
                     </div>
-                    <div className="flex justify-between px-5 py-2 bg-white">
+                    <button className="flex justify-between px-5 py-2 bg-white" onClick={handleLogOut}>
                         <p>Log out</p>
                         <FontAwesomeIcon icon={faGreaterThan} className='pt-1 text-slate-600'/>
-                    </div>
+                    </button>
                 </div>
             </div>
         </div>
