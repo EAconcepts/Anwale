@@ -2,11 +2,12 @@ import Footer from "./Footer"
 import Navbar from "./Navbar"
 
 
-const Home =()=>{
+const Home =({isLoggedIn, currentUser})=>{
+    // console.log(isLoggedIn)
 
     return(
         <div>
-            <Navbar/>
+            <Navbar isLoggedIn={isLoggedIn} currentUser={currentUser} />
             <div>
                 <p>
             What is Lorem Ipsum?

@@ -20,7 +20,7 @@ const Footer =()=>{
         return()=>window.addEventListener('scroll', handleScroll);
     },[])
     return(
-        <nav className={` fixed bottom-0 right-0 left-0 z-10 bg-slate-100 ${scrollDirection==='down' ? ' translate-y-full' : 'translate-y-0'}`}>
+        <nav className={` fixed bottom-0 right-0 left-0 z-10 bg-slate-100 sm:hidden ${scrollDirection==='down' ? ' translate-y-full' : 'translate-y-0'}`}>
             <div className="flex justify-evenly text-center mb-1">
                 <div>
                     <NavLink to='/'>
