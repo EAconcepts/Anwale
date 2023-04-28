@@ -34,13 +34,16 @@ const Dashboard = ({isLoggedIn, setIsLoggedIn, formValues, userValues,currentUse
             {/* {!isLoggedIn &&(
                 <Login/>
             )} */}
-            <nav className='flex gap-3 p-2 bg-slate-100'>
-                <button onClick={handleBackIcon}>
-                    <FontAwesomeIcon icon={faLessThan} className='' /> 
-                </button>
-                <FontAwesomeIcon icon={faUserCircle} className='text-xl text-slate-900'/>
-               <span className='text-xs'>{currentUser} </span>
-               <button className=' text-xs'>
+            <nav className='flex justify-between gap-3 px-3 py-2 bg-slate-100'>
+                <div className='flex gap-3'>
+                    <button onClick={handleBackIcon}>
+                        <FontAwesomeIcon icon={faLessThan} className='text-xl mr-2' /> 
+                    </button>
+                    <FontAwesomeIcon icon={faUserCircle} className='text-xl text-slate-900'/>
+                    <span className='text-xs'>{currentUser} </span>
+                </div>
+                
+               <button className='text-xs'>
                 SETTINGS <FontAwesomeIcon icon={faGear}/>
                </button>
             </nav>
