@@ -6,6 +6,7 @@ import { faLessThan, faUserCircle, faGear } from '@fortawesome/free-solid-svg-ic
 import Navbar from './Navbar';
 import Footer from './Footer';
 import Login from './auth/Login';
+import StaticFooter from './StaticFooter';
 
 
 
@@ -43,11 +44,10 @@ const Dashboard = ({isLoggedIn, setIsLoggedIn, formValues, userValues,currentUse
                 SETTINGS <FontAwesomeIcon icon={faGear}/>
                </button>
             </nav>
-            {/* <SignUp/> */}
             
 
-
-            <Footer/>
+            <StaticFooter/>
+            {/* <Footer/> */}
         </div>
     )
 }
