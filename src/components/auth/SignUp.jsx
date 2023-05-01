@@ -44,6 +44,7 @@ const SignUp = () => {
           })
         .catch((error) =>{ 
             console.log(error)})
+            alert(error)
     } else {
       setErrors(validationErrors);
     }
@@ -88,7 +89,7 @@ const SignUp = () => {
   function Modal() {
     return (
       <div>
-        {showModal && (<Login/>)}
+        {!showModal && (<Login/>)}
       </div>
     );
   }
