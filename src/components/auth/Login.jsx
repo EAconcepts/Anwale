@@ -28,7 +28,6 @@ export const Login = ({isLoggedIn, setIsLoggedIn, currentUser, setCurrentUser}) 
                 // console.log(userValues.user.email)
                 // localStorage.setItem('currentUser', JSON.stringify(currentUser))
                 localStorage.setItem('currentUser',(currentUser))
-                // const currentUser = localStorage.getItem('currentUser');
                 setCurrentUser(currentUser)
                 localStorage.setItem('isLoggedIn', (true))
                 console.log(currentUser)
