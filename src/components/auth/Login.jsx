@@ -28,11 +28,15 @@ export const Login = ({isLoggedIn, setIsLoggedIn, currentUser, setCurrentUser}) 
                 // console.log(userValues.user.email)
                 // localStorage.setItem('currentUser', JSON.stringify(currentUser))
                 localStorage.setItem('currentUser',(currentUser))
+                // const currentUser = localStorage.getItem('currentUser');
+                setCurrentUser(currentUser)
+                localStorage.setItem('isLoggedIn', (true))
                 console.log(currentUser)
 
-                setIsLoggedIn(true)
+                // setIsLoggedIn(true)
                 navigateTo('/dashboard')
-                return isLoggedIn
+                return currentUser;
+                // return isLoggedIn, isLoggedIn, currentUser  
             })
             .catch((error)=>{
                 console.log(error)
@@ -51,14 +55,18 @@ export const Login = ({isLoggedIn, setIsLoggedIn, currentUser, setCurrentUser}) 
     //     }
     // }, [isLoggedIn])
 
-    // useEffect(() => {
+    
     //   const unsubscribe = auth.onAuthStateChanged((currentUser) => {
     //     setCurrentUser(currentUser);
     //     return currentUser;
     //   });
-       
-    //   return unsubscribe;
-    // }, []);
+    // useEffect(() => {
+    //   const currentUser = localStorage.getItem('currentUser');
+    //   if(currentUser){
+    //     setCurrentUser(currentUser)
+    //   }
+    //    console.log(currentUser)
+    // }, [currentUser]);
 
     const loginValidation =(values)=>{
         let errors = {}

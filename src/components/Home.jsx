@@ -51,7 +51,7 @@ const Home =({isLoggedIn, currentUser})=>{
     Section 1.10.33 of "de Finibus Bonorum et Malorum", written by Cicero in 45 BC
                 </p>
             </div>
-            <Footer/>
+            <Footer currentUser={currentUser} />
         </div>
     )
 }

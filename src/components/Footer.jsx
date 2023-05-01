@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
 
-const Footer =()=>{
+const Footer =({currentUser})=>{
 
     const [scrollDirection, setScrollDirection] = useState('down');
 
@@ -47,7 +47,7 @@ const Footer =()=>{
                     </NavLink>
                 </div>    
                 <div>
-                    <NavLink to='/dashboard'>
+                    <NavLink to={currentUser ? '/dashboard' : '/login'}>
                         <i className="fa fa-user"></i>
                         <p className="-my-1 text-xs">Profile</p>
                     </NavLink>

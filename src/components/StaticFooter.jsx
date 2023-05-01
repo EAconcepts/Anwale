@@ -1,7 +1,7 @@
 // import { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
 
-const StaticFooter =()=>{
+const StaticFooter =({currentUser})=>{
 
    
     return(
@@ -32,7 +32,7 @@ const StaticFooter =()=>{
                     </NavLink>
                 </div>    
                 <div>
-                    <NavLink to='/dashboard'>
+                    <NavLink to={`${currentUser ? '/dashboard' : '/login'}`}>
                         <i className="fa fa-user"></i>
                         <p className="-my-1 text-xs">Profile</p>
                     </NavLink>

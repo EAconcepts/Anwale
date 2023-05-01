@@ -24,10 +24,13 @@ function App() {
 
   useEffect(()=>{
     const currentUser = localStorage.getItem('currentUser');
+    const isLoggedIn = localStorage.getItem('isLoggedIn')
     if(currentUser){
       // console.log(currentUser)
       setCurrentUser(currentUser)
       console.log(currentUser)
+      setIsLoggedIn(isLoggedIn)
+      console.log(isLoggedIn)
     }
   })
 
@@ -41,7 +44,7 @@ function App() {
           <Route path='/dashboard' element={<Dashboard isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} formValues={formValues} userValues={userValues} currentUser={currentUser} setCurrentUser={setCurrentUser} />}/>
           <Route path='/login' element={<Login isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} userValues={userValues} currentUser={currentUser} setCurrentUser={setCurrentUser} />}/>
           <Route path='/sign-up' element={<SignUp isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} formValues={formValues} setFormValues={setFormValues} />}/>
-          <Route path='/settings' element={<Settings/>} currentUser={currentUser} setCurrentUser={setCurrentUser}/>
+          <Route path='/settings' element={<Settings currentUser={currentUser} setCurrentUser={setCurrentUser} isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn}/>}/>
         </Routes>
         {/* <Footer/> */}
       </BrowserRouter>

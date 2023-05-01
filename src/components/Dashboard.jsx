@@ -2,9 +2,6 @@ import { useState } from 'react';
 import {NavLink, useNavigate} from 'react-router-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faLessThan, faUserCircle, faGear, faList, faCommenting, faChartSimple, faBolt, faWallet, faNairaSign, faPhoneVolume,  } from '@fortawesome/free-solid-svg-icons'
-
-import Navbar from './Navbar';
-import Footer from './Footer';
 import Login from './auth/Login';
 import StaticFooter from './StaticFooter';
 import { faBell, faCircleQuestion, faGem, faUser } from '@fortawesome/free-regular-svg-icons';
@@ -18,10 +15,10 @@ const Dashboard = ({isLoggedIn, setIsLoggedIn, formValues, userValues,currentUse
 
     // const [loggedIn, setLoggedIn] = useState(false)
     // const [signedUp, setSignedUp] = useState(false)
-
+    // const currentUser = currentUser
     
-    // console.log(isLoggedIn)
-    // console.log(currentUser.email)
+    console.log(isLoggedIn)
+    console.log(currentUser)
     // console.log(userValues)
     // console.log(formValues)
 
@@ -29,8 +26,9 @@ const Dashboard = ({isLoggedIn, setIsLoggedIn, formValues, userValues,currentUse
         navigateTo(-1)
     }
 
-    return(
-        <div className='h-screen bg-slate-200'>
+    const DashboardPage =()=>{
+        return(
+            <div className='h-screen bg-slate-200'>
             <nav className='flex justify-between gap-3 px-4 py-2 bg-slate-100'>
                 <div className='flex gap-3'>
                     <button onClick={handleBackIcon}>
@@ -97,8 +95,12 @@ const Dashboard = ({isLoggedIn, setIsLoggedIn, formValues, userValues,currentUse
                     </div> 
                 </div>
             </div>
-            <StaticFooter/>
+            <StaticFooter currentUser={currentUser} />
         </div>
+        )
+    }
+    return(
+        <div>{currentUser ? <DashboardPage/> : <Login/>}</div>
     )
 }
 

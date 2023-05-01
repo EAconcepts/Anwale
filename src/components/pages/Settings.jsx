@@ -2,28 +2,44 @@ import { faGreaterThan, faLessThan } from "@fortawesome/free-solid-svg-icons"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { useNavigate } from "react-router-dom"
 // import firebase from "firebase/app";
-import "firebase/auth";
+// import "firebase/auth";
+import { getAuth, signOut } from "firebase/auth";
+import { auth } from '../../firebase'
+import Login from "../auth/Login";
 
 
-const Settings =({currentUser, setCurrentuser})=>{
+const Settings =({currentUser, setCurrentUser, isLoggedIn, setIsLoggedIn})=>{
     const navigateTo = useNavigate()
+    const auth = getAuth()
 
     const handleBackIcon =()=>{
         navigateTo(-1)
     }
 
+    console.log(isLoggedIn)
     console.log(currentUser)
 
-    const handleLogOut = async ()=>{
-        try{
-            await firebase.auth().signOut();
-        } catch (err){
-            alert(err.message)
-        }
+    const handleLogOut = ()=>{
+        signOut(auth).then(()=>{
+            // const currentUser = localStorage.getItem(currentUser)
+            localStorage.removeItem('currentUser')
+            setCurrentUser(null)
+            console.log(currentUser)
+            localStorage.removeItem('isLoggedIn')
+            setIsLoggedIn(null)
+            console.log(isLoggedIn)
+            console.log("Signed out succesfully")
+            navigateTo('/')
+        })
+        .catch((error)=>{
+            console.log(error)
+            alert(error)
+        })
     }
 
-    return(
-        <div className="bg-slate-200 min-h-screen">
+    const SettingsPage =()=>{
+        return(
+            <div className="bg-slate-200 min-h-screen">
             <nav className="bg-slate-100 px-4 py-2 shadow">
                 <div className='flex gap-3'>
                     <button onClick={handleBackIcon}>
@@ -82,6 +98,12 @@ const Settings =({currentUser, setCurrentuser})=>{
                     </button>
                 </div>
             </div>
+        </div>
+        )
+    }
+    return(
+        <div>
+            { currentUser ? <SettingsPage/> : <Login/>}
         </div>
     )
 }
