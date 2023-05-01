@@ -43,8 +43,8 @@ const SignUp = () => {
             setShowModal(true)
           })
         .catch((error) =>{ 
-            console.log(error)})
-            alert(error)
+            console.log(error)
+            alert(error)})
     } else {
       setErrors(validationErrors);
     }
