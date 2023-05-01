@@ -89,7 +89,7 @@ const SignUp = () => {
   function Modal() {
     return (
       <div>
-        {!showModal && (<Login/>)}
+        {showModal && (<Login/>)}
       </div>
     );
   }
