@@ -29,19 +29,19 @@ const Footer =({currentUser})=>{
                     </NavLink>
                 </div>  
                 <div>
-                    <NavLink to='/saved'>
+                    <NavLink to={currentUser ? '/saved' : '/login'}>
                         <i className="fa fa-bookmark"></i>
                         <p className="-my-1 text-xs">Saved</p>
                     </NavLink>
                 </div> 
                 <div className="">
-                    <NavLink to='/sell'>
+                    <NavLink to={currentUser ? '/sell' : '/login'}>
                         <i className="fa fa-plus-square"></i>
                         <p className="-my-1 text-xs">Sell</p>
                     </NavLink>
                 </div>
                 <div>
-                    <NavLink to='/messages'>
+                    <NavLink to={currentUser ? '/messages' : '/login'}>
                         <i className="fa fa-comments"></i>
                         <p className="-my-1 text-xs">Messages</p>
                     </NavLink>

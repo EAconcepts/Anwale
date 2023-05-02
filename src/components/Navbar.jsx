@@ -3,10 +3,7 @@ import logo from '../assets/images/logo-black.png'
 
 const Navbar = ({isLoggedIn, currentUser}) =>{
   const navigateTo = useNavigate()
-
-  // console.log(isLoggedIn)
-  const handleDashboardClick =()=> {currentUser ? navigateTo('/dashboard') : navigateTo('/login')
-    // return currentUser    
+  const handleDashboardClick =()=> {currentUser ? navigateTo('/dashboard') : navigateTo('/login')    
 } 
   
     return(

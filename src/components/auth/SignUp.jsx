@@ -77,8 +77,6 @@ const SignUp = () => {
     return errors;
   };
 
-
-
   const closeModal = () => {
     setShowModal(false);
   };
@@ -94,7 +92,6 @@ const SignUp = () => {
     );
   }
   
-
   return (
     <div>
       <nav className='flex justify-between gap-3 px-4 py-2 bg-slate-200'>

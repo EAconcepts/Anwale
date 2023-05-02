@@ -7,19 +7,12 @@ import StaticFooter from './StaticFooter';
 import { faBell, faCircleQuestion, faGem, faUser } from '@fortawesome/free-regular-svg-icons';
 
 
-
-
-const Dashboard = ({isLoggedIn, setIsLoggedIn, formValues, userValues,currentUser}) =>{
+const Dashboard = ({isLoggedIn, setIsLoggedIn, formValues, currentUser}) =>{
 
     const navigateTo = useNavigate()
-
-    // const [loggedIn, setLoggedIn] = useState(false)
-    // const [signedUp, setSignedUp] = useState(false)
-    // const currentUser = currentUser
     
     console.log(isLoggedIn)
     console.log(currentUser)
-    // console.log(userValues)
     // console.log(formValues)
 
     const handleBackIcon =()=>{

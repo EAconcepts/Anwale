@@ -20,8 +20,7 @@ function App() {
 });
   const [isLoggedIn, setIsLoggedIn] = useState(null)
   const [currentUser, setCurrentUser] = useState(null)
-  let userValues
-
+  
   useEffect(()=>{
     const currentUser = localStorage.getItem('currentUser');
     const isLoggedIn = localStorage.getItem('isLoggedIn')
@@ -37,16 +36,13 @@ function App() {
   return (
     <div className="App">
       <BrowserRouter>
-        {/* <Home/> */}
-        {/* <Navbar/> */}
         <Routes>
           <Route exact path='/' element={<Home isLoggedIn={isLoggedIn} currentUser={currentUser} />}/>
-          <Route path='/dashboard' element={<Dashboard isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} formValues={formValues} userValues={userValues} currentUser={currentUser} setCurrentUser={setCurrentUser} />}/>
-          <Route path='/login' element={<Login isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} userValues={userValues} currentUser={currentUser} setCurrentUser={setCurrentUser} />}/>
+          <Route path='/dashboard' element={<Dashboard isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} formValues={formValues}  currentUser={currentUser} setCurrentUser={setCurrentUser} />}/>
+          <Route path='/login' element={<Login isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} currentUser={currentUser} setCurrentUser={setCurrentUser} />}/>
           <Route path='/sign-up' element={<SignUp isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} formValues={formValues} setFormValues={setFormValues} />}/>
           <Route path='/settings' element={<Settings currentUser={currentUser} setCurrentUser={setCurrentUser} isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn}/>}/>
         </Routes>
-        {/* <Footer/> */}
       </BrowserRouter>
       
     </div>
