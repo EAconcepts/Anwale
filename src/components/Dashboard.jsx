@@ -7,12 +7,13 @@ import StaticFooter from './StaticFooter';
 import { faBell, faCircleQuestion, faGem, faUser } from '@fortawesome/free-regular-svg-icons';
 
 
-const Dashboard = ({isLoggedIn, setIsLoggedIn, formValues, currentUser}) =>{
+const Dashboard = ({user, isLoggedIn, setIsLoggedIn, formValues, currentUser}) =>{
 
     const navigateTo = useNavigate()
-    
-    console.log(isLoggedIn)
-    console.log(currentUser)
+    const username = user.displayName
+    console.log(user)
+    // console.log(isLoggedIn)
+    // console.log(currentUser)
     // console.log(formValues)
 
     const handleBackIcon =()=>{
@@ -28,7 +29,7 @@ const Dashboard = ({isLoggedIn, setIsLoggedIn, formValues, currentUser}) =>{
                         <FontAwesomeIcon icon={faLessThan} className='text-xl mr-2' /> 
                     </button>
                     <FontAwesomeIcon icon={faUserCircle} className='text-xl text-slate-900'/>
-                    <span className='text-xs'>{currentUser} </span>
+                    <span className='text-xs'>{username} </span>
                 </div>
                 <NavLink to='/settings' className='text-xs'>
                     SETTINGS <FontAwesomeIcon icon={faGear}/>
@@ -88,12 +89,16 @@ const Dashboard = ({isLoggedIn, setIsLoggedIn, formValues, currentUser}) =>{
                     </div> 
                 </div>
             </div>
-            <StaticFooter currentUser={currentUser} />
+            <StaticFooter user={user} />
         </div>
         )
     }
     return(
-        <div>{currentUser ? <DashboardPage/> : <Login/>}</div>
+        <div>
+            {/* {currentUser ? <DashboardPage/> : <Login/>} */}
+            <DashboardPage/>
+            </div>
+        
     )
 }
 

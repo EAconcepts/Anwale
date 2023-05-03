@@ -1,17 +1,18 @@
 import {React, useEffect, useState} from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { auth, provider } from '../../firebase'
-import {signInWithEmailAndPassword, signInWithRedirect} from 'firebase/auth'
+import {signInWithEmailAndPassword, signInWithRedirect, signOut} from 'firebase/auth'
 // import firebase from "firebase/app";
 import "firebase/auth";
-
-import {getAuth, signInWithPopup, getRedirectResult, GoogleAuthProvider } from "firebase/auth";
+import { useAuthState } from "react-firebase-hooks/auth";
 import { async } from '@firebase/util';
 
-export const Login = ({isLoggedIn, setIsLoggedIn, currentUser, setCurrentUser}) => {
 
-  // const provider = new GoogleAuthProvider();
-  const auth = getAuth()
+
+const Login = ({user, loading, isLoggedIn, setIsLoggedIn, currentUser, setCurrentUser}) => {
+
+  
+  console.log(user)
  
     const navigateTo = useNavigate()
     const [userDetails, setUserDetails] = useState({
@@ -19,7 +20,6 @@ export const Login = ({isLoggedIn, setIsLoggedIn, currentUser, setCurrentUser}) 
         password: "",
     })
     const [errors, setErrors] = useState("")
-    // const [isLoggedIn, setIsLoggedIn] = useState(false)
 
     const handleInputChange =(event)=>{
         const {name, value} = event.target;
@@ -68,35 +68,31 @@ export const Login = ({isLoggedIn, setIsLoggedIn, currentUser, setCurrentUser}) 
         return errors
     }
 
-    const handleGoogleAuth = ()=>{
-      signInWithRedirect(auth, provider)
-      .then((result)=>{
-        // const credential =  provider.credentialFromResult(result);
-        // console.log(credential)
-        // const token = credential.accessToken;
-        // console.log(token)
-        // const user = result.user.email
-        // console.log(user)
-        // currentUser = user
-        setCurrentUser(result.user.email)
-        localStorage.setItem('currentUser',(currentUser))
-        // setCurrentUser(currentUser)
-        navigateTo('/')
-      }) .catch((error)=>{
-        const errorCode = error.code;
-        console.log(errorCode)
-        const errorMessage = error.message;
-        console.log(errorMessage)
-        const email = error.customData.email;
-        console.log(email)
-        const credential = GoogleAuthProvider.credentialFromError(error);
-        console.log(credential)
-      })
+    const handleGoogleAuth = async ()=>{
+      try{
+        const res = signInWithRedirect(auth, provider)
+      const user = res.user
+    } catch (err){
+      console.error(err)
+      alert(err.message)
+    }     
     }
+    
+    // const handleSignOut = () =>{
+    //   signOut(auth)
+    // }
+    
     useEffect(()=>{
-      setCurrentUser(localStorage.getItem('currentUser'))
-      console.log(currentUser)
-    })
+      if(loading){
+        return
+      }
+      if(user){
+        user = localStorage.setItem('user', user.email)
+        navigateTo('/dashboard')
+        console.log("There is a user")
+      } 
+      // else{alert("No user logged in")}
+    },[loading, user])
   return (
     <div>
       <div className="fixed top-0 left-0 right-0 bottom-0 bg-gray-500 bg-opacity-50 flex justify-center items-center">

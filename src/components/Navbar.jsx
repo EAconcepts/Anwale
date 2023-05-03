@@ -1,9 +1,10 @@
 import {NavLink, useNavigate} from 'react-router-dom'
 import logo from '../assets/images/logo-black.png'
 
-const Navbar = ({isLoggedIn, currentUser}) =>{
+const Navbar = ({user, isLoggedIn, currentUser}) =>{
   const navigateTo = useNavigate()
-  const handleDashboardClick =()=> {currentUser ? navigateTo('/dashboard') : navigateTo('/login')    
+  const handleDashboardClick =()=> {
+    user ? navigateTo('/dashboard') : navigateTo('/login')    
 } 
   
     return(

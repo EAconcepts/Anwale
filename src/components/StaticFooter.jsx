@@ -1,7 +1,7 @@
 // import { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
 
-const StaticFooter =({currentUser})=>{
+const StaticFooter =({user})=>{
 
    
     return(
@@ -14,25 +14,25 @@ const StaticFooter =({currentUser})=>{
                     </NavLink>
                 </div>  
                 <div>
-                    <NavLink to={currentUser ? '/saved' : '/login'}>
+                    <NavLink to={user ? '/saved' : '/login'}>
                         <i className="fa fa-bookmark"></i>
                         <p className="-my-1 text-xs">Saved</p>
                     </NavLink>
                 </div> 
                 <div className="">
-                    <NavLink to={currentUser ? '/sell' : '/login'}>
+                    <NavLink to={user ? '/sell' : '/login'}>
                         <i className="fa fa-plus-square"></i>
                         <p className="-my-1 text-xs">Sell</p>
                     </NavLink>
                 </div>
                 <div>
-                    <NavLink to={currentUser ? '/messages' : '/login'}>
+                    <NavLink to={user ? '/messages' : '/login'}>
                         <i className="fa fa-comments"></i>
                         <p className="-my-1 text-xs">Messages</p>
                     </NavLink>
                 </div>    
                 <div>
-                    <NavLink to={currentUser ? '/dashboard' : '/login'}>
+                    <NavLink to={user ? '/dashboard' : '/login'}>
                         <i className="fa fa-user"></i>
                         <p className="-my-1 text-xs">Profile</p>
                     </NavLink>

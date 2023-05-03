@@ -6,37 +6,27 @@ import { useNavigate } from "react-router-dom"
 import { getAuth, signOut } from "firebase/auth";
 import { auth } from '../../firebase'
 import Login from "../auth/Login";
+import SignOut from "../auth/SignOut";
+import { useEffect } from "react";
 
 
-const Settings =({currentUser, setCurrentUser, isLoggedIn, setIsLoggedIn})=>{
+const Settings =({user, currentUser, setCurrentUser, isLoggedIn, setIsLoggedIn})=>{
     const navigateTo = useNavigate()
     const auth = getAuth()
+    console.log(user)
 
     const handleBackIcon =()=>{
         navigateTo(-1)
     }
 
-    console.log(isLoggedIn)
+    // console.log(isLoggedIn)
     console.log(currentUser)
 
-    const handleLogOut = ()=>{
-        signOut(auth).then(()=>{
-            // const currentUser = localStorage.getItem(currentUser)
-            localStorage.removeItem('currentUser')
-            setCurrentUser(null)
-            console.log(currentUser)
-            localStorage.removeItem('isLoggedIn')
-            setIsLoggedIn(null)
-            console.log(isLoggedIn)
-            console.log("Signed out succesfully")
-            navigateTo('/')
-        })
-        .catch((error)=>{
-            console.log(error)
-            alert(error)
-        })
-    }
-
+    useEffect(()=>{
+        if(!user){
+            navigateTo('/login')
+        }
+    })
     const SettingsPage =()=>{
         return(
             <div className="bg-slate-200 min-h-screen">
@@ -92,7 +82,7 @@ const Settings =({currentUser, setCurrentUser, isLoggedIn, setIsLoggedIn})=>{
                         <p>Delete my account permanently</p>
                         <FontAwesomeIcon icon={faGreaterThan} className='pt-1 text-slate-600'/>
                     </div>
-                    <button className="flex justify-between px-5 py-2 bg-white" onClick={handleLogOut}>
+                    <button className="flex justify-between px-5 py-2 bg-white" onClick={()=>SignOut(user)}>
                         <p>Log out</p>
                         <FontAwesomeIcon icon={faGreaterThan} className='pt-1 text-slate-600'/>
                     </button>
@@ -103,7 +93,8 @@ const Settings =({currentUser, setCurrentUser, isLoggedIn, setIsLoggedIn})=>{
     }
     return(
         <div>
-            { currentUser ? <SettingsPage/> : <Login/>}
+            {/* { user ? <SettingsPage/> : <Login/>} */}
+            <SettingsPage/>
         </div>
     )
 }
